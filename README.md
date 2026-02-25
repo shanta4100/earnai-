@@ -1,2 +1,16 @@
-# earnai-
-To democratize global intelligence and creative innovation by leveraging autonomous AI agents and public-signal data. We empower creators and institutions with early-detection tools and scalable media infrastructure to navigate a rapidly evolving digital landscape.
+# GNAIAAAC QuickEarn Hub
+
+Public storefront website for quick-earning offers (EarnAI + services).
+Operated by GNAIAAAC LLC.
+
+## Deploy
+- Works as static files (no build)
+- Vercel preset: Other
+- Root: ./
+
+## Stripe
+Replace:
+REPLACE_WITH_STRIPE_BASIC
+REPLACE_WITH_STRIPE_STANDARD
+REPLACE_WITH_STRIPE_PRO
+with your Stripe Payment Links.
