@@ -10,9 +10,7 @@ export default function page() {
       <p>
         commission: <strong>20%</strong> per sale (manual payout)
       </p>
-      <p>
-        <a href="/">back home</a>
-      </p>
+      <p><a href="/">back home</a></p>
     </main>
   )
 }
