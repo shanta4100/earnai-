@@ -7,7 +7,6 @@ export default function AffiliatePage() {
   const [link, setLink] = useState(base + "YOURNAME");
 
   useEffect(() => {
-    // If someone visits /affiliate?ref=abc we can show that too
     const params = new URLSearchParams(window.location.search);
     const ref = params.get("ref");
     if (ref) setLink(base + ref);
