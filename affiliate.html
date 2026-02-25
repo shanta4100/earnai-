@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EarnAI — Affiliate Program</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+
+<body>
+  <main style="max-width:900px;margin:40px auto;padding:0 16px;">
+    <h1>EarnAI Affiliate Program</h1>
+
+    <p>Share your referral link and earn 20% commission.</p>
+
+    <h3>Your Link:</h3>
+    <pre id="linkBox"
+         style="background:#f6f6f6;padding:12px;border-radius:10px;">
+    </pre>
+
+    <p>Example:</p>
+    <code>https://earnai.vercel.app/?ref=YOURNAME</code>
+
+    <br/><br/>
+    <a href="/">Back Home</a>
+  </main>
+
+  <script>
+    const base = "https://earnai.vercel.app/?ref=";
+    document.getElementById("linkBox").textContent =
+      base + "YOURNAME";
+  </script>
+</body>
+</html>
