@@ -1,18 +1,30 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>EarnAI Affiliate</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EarnAI — Affiliate</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
 </head>
 <body>
+  <main style="max-width:900px;margin:40px auto;padding:0 16px;">
+    <h1>EarnAI Affiliate</h1>
+    <p>Share your link like this:</p>
 
-<h1>EarnAI Affiliate Program</h1>
+    <pre id="linkBox" style="background:#f6f6f6;padding:12px;border-radius:10px;overflow:auto;"></pre>
 
-<p>Share this link and earn commission:</p>
+    <p>Example:</p>
+    <ul>
+      <li><code>https://earnai.vercel.app/?ref=YOURNAME</code></li>
+    </ul>
 
-<p>Example:</p>
-<p>https://earnai.vercel.app/?ref=yourname</p>
+    <p>When someone buys, the referral code stays saved and is attached during checkout.</p>
+  </main>
 
-<p>Commission: 20% per sale (manual payout)</p>
-
+  <script src="/assets/app.js"></script>
+  <script>
+    const base = "https://earnai.vercel.app/?ref=";
+    document.getElementById("linkBox").textContent = base + "YOURNAME";
+  </script>
 </body>
 </html>
