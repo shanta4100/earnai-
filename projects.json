@@ -37,3 +37,6 @@
     }
   ]
 }
+"scripts": {
+  "build": "next build"
+}
