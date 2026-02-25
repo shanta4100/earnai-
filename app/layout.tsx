@@ -1,12 +1,13 @@
-function RefTracker() {
-  "use client";
-  import { useEffect } from "react";
-  import { saveRefFromUrl } from "../lib/affiliate";
+import type { ReactNode } from "react";
+import RefTracker from "./components/RefTracker";
 
-  useEffect(() => {
-    saveRefFromUrl();
-  }, []);
-
-  return null;
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <RefTracker />
+        {children}
+      </body>
+    </html>
+  );
 }
-<RefTracker />
