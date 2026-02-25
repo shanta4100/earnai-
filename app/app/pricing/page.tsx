@@ -10,19 +10,19 @@ export default function PricingPage() {
       <h1>EarnAI Packages</h1>
 
       <ul>
-        <li style={{ marginBottom: 18 }}>
+        <li>
           <strong>EarnAI Basic — $50</strong>
           <div>15 scripts • 2 hooks/script</div>
           <a href={STRIPE_LINKS.basic}>Pay Basic</a>
         </li>
-
-        <li style={{ marginBottom: 18 }}>
+        <br />
+        <li>
           <strong>EarnAI Standard — $100</strong>
           <div>30 scripts • 3 hooks/script</div>
           <a href={STRIPE_LINKS.standard}>Pay Standard</a>
         </li>
-
-        <li style={{ marginBottom: 18 }}>
+        <br />
+        <li>
           <strong>EarnAI Pro — $150</strong>
           <div>45 scripts • 4 hooks/script</div>
           <a href={STRIPE_LINKS.pro}>Pay Pro</a>
