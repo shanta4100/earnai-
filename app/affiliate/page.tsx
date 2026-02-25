@@ -1,50 +1,41 @@
-"use client";
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EarnAI — Affiliate Program</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
 
-import { useMemo, useState } from "react";
+<body>
+  <main style="max-width:900px;margin:40px auto;padding:0 16px;">
+    <h1>EarnAI Affiliate Program</h1>
 
-export default function AffiliatePage() {
-  const [code, setCode] = useState("shanta01");
+    <p>Share your referral link and earn commission.</p>
 
-  const home = useMemo(() => {
-    if (typeof window === "undefined") return "";
-    return `${window.location.origin}/?ref=${encodeURIComponent(code)}`;
-  }, [code]);
+    <h3>Your Link:</h3>
+    <pre id="linkBox"
+         style="background:#f6f6f6;padding:12px;border-radius:10px;overflow:auto;">
+    </pre>
 
-  const order = useMemo(() => {
-    if (typeof window === "undefined") return "";
-    return `${window.location.origin}/order?ref=${encodeURIComponent(code)}`;
-  }, [code]);
+    <p>Example:</p>
+    <ul>
+      <li><code>https://earnai.vercel.app/?ref=YOURNAME</code></li>
+    </ul>
 
-  return (
-    <main style={{ maxWidth: 820, margin: "0 auto", padding: 20 }}>
-      <h1>Affiliate Link Builder</h1>
-      <p>Give partners a code. Any customer coming with that code is tracked.</p>
+    <p><strong>Commission:</strong> 20% per sale (manual payout)</p>
 
-      <label style={{ display: "block", marginTop: 10, fontWeight: 700 }}>
-        Your affiliate code
-      </label>
-      <input
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        style={{ width: "100%", padding: 12, borderRadius: 10, border: "1px solid #ddd" }}
-      />
+    <p>
+      When someone buys through your link, the referral code stays saved
+      and is attached during checkout.
+    </p>
+  </main>
 
-      <div style={{ marginTop: 14 }}>
-        <p><b>Homepage link</b></p>
-        <code style={codeBox}>{home}</code>
-
-        <p style={{ marginTop: 14 }}><b>Order page link</b></p>
-        <code style={codeBox}>{order}</code>
-      </div>
-    </main>
-  );
-}
-
-const codeBox: React.CSSProperties = {
-  display: "block",
-  padding: 12,
-  borderRadius: 10,
-  border: "1px solid #eee",
-  background: "#fafafa",
-  wordBreak: "break-all",
-};
+  <script src="/assets/app.js"></script>
+  <script>
+    const base = "https://earnai.vercel.app/?ref=";
+    document.getElementById("linkBox").textContent =
+      base + "YOURNAME";
+  </script>
+</body>
+</html>
