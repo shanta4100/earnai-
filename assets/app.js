@@ -4,28 +4,23 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
     const fd = new FormData(form);
-    const name = (fd.get("name") || "").toString().trim();
-    const email = (fd.get("email") || "").toString().trim();
-    const details = (fd.get("details") || "").toString().trim();
+    const name = String(fd.get("name") || "").trim();
+    const email = String(fd.get("email") || "").trim();
+    const details = String(fd.get("details") || "").trim();
 
-    const subject = encodeURIComponent("EarnAI Order — Package Request");
+    const subject = encodeURIComponent("EarnAI Order — Shorts Script Package");
     const body = encodeURIComponent(
-`Hello GNAIAAAC LLC,
+`Hello EarnAI (GNAIAAAC LLC),
 
-My name: ${name}
-My email: ${email}
+Name: ${name}
+Email: ${email}
 
-I want to order:
-- EarnAI Shorts Script Package (Basic / Standard / Pro)
-
+Package: Basic / Standard / Pro
 Details:
 ${details}
 
-Delivery expectation:
-- 48 hours (as stated on the site)
-
+Delivery: 48 hours
 Thank you.
 `
     );
