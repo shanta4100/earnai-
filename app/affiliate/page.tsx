@@ -1,42 +1,50 @@
 "use client";
 
-import { withRef, getRef } from "../../lib/affiliate";
-
-const links = [
-  { name: "Vercel Hosting", url: "https://vercel.com" },
-  { name: "Cloudflare DNS", url: "https://www.cloudflare.com" },
-  { name: "Stripe Payments", url: "https://stripe.com" },
-];
+import { useMemo, useState } from "react";
 
 export default function AffiliatePage() {
-  const ref = getRef();
+  const [code, setCode] = useState("shanta01");
+
+  const home = useMemo(() => {
+    if (typeof window === "undefined") return "";
+    return `${window.location.origin}/?ref=${encodeURIComponent(code)}`;
+  }, [code]);
+
+  const order = useMemo(() => {
+    if (typeof window === "undefined") return "";
+    return `${window.location.origin}/order?ref=${encodeURIComponent(code)}`;
+  }, [code]);
 
   return (
-    <main style={{ padding: 24, fontFamily: "Arial" }}>
-      <h1>Affiliate Hub</h1>
-      <p>
-        Your referral code: <b>{ref || "none"}</b>
-      </p>
+    <main style={{ maxWidth: 820, margin: "0 auto", padding: 20 }}>
+      <h1>Affiliate Link Builder</h1>
+      <p>Give partners a code. Any customer coming with that code is tracked.</p>
 
-      <p>Share this link:</p>
-      <div style={{ padding: 12, border: "1px solid #ddd", borderRadius: 8 }}>
-        <code>{`https://earnai.vercel.app/?ref=${ref || "YOURNAME"}`}</code>
+      <label style={{ display: "block", marginTop: 10, fontWeight: 700 }}>
+        Your affiliate code
+      </label>
+      <input
+        value={code}
+        onChange={(e) => setCode(e.target.value)}
+        style={{ width: "100%", padding: 12, borderRadius: 10, border: "1px solid #ddd" }}
+      />
+
+      <div style={{ marginTop: 14 }}>
+        <p><b>Homepage link</b></p>
+        <code style={codeBox}>{home}</code>
+
+        <p style={{ marginTop: 14 }}><b>Order page link</b></p>
+        <code style={codeBox}>{order}</code>
       </div>
-
-      <h2 style={{ marginTop: 24 }}>Tools We Recommend</h2>
-      <ul>
-        {links.map((l) => (
-          <li key={l.name} style={{ margin: "10px 0" }}>
-            <a href={withRef(l.url)} target="_blank" rel="noreferrer">
-              {l.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <p style={{ marginTop: 24, fontSize: 12, opacity: 0.8 }}>
-        Disclosure: Links may be affiliate links.
-      </p>
     </main>
   );
 }
+
+const codeBox: React.CSSProperties = {
+  display: "block",
+  padding: 12,
+  borderRadius: 10,
+  border: "1px solid #eee",
+  background: "#fafafa",
+  wordBreak: "break-all",
+};
