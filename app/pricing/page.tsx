@@ -1,31 +1,54 @@
+// app/pricing/page.tsx
 export default function PricingPage() {
+  const plans = [
+    {
+      name: "Starter",
+      price: "$9/mo",
+      features: ["Basic dashboard", "Email support", "1 user"]
+    },
+    {
+      name: "Pro",
+      price: "$29/mo",
+      features: ["Advanced dashboard", "Priority support", "5 users"]
+    },
+    {
+      name: "Business",
+      price: "$99/mo",
+      features: ["Full analytics", "Dedicated support", "Unlimited users"]
+    }
+  ];
+
   return (
-    <main style={{ maxWidth: 900, margin: "40px auto", padding: "0 16px" }}>
-      <h1>EarnAI Pricing</h1>
-      <p>Choose a package. Delivery: within 48 hours.</p>
+    <main className="min-h-screen bg-white px-6 py-10">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-3xl font-semibold text-slate-900 mb-6">
+          Pricing Plans
+        </h1>
 
-      <ul>
-        <li>
-          <strong>Basic — $50</strong> (15 scripts, 2 hooks/script){" "}
-          <a href="https://buy.stripe.com/xxxxx">Buy</a>
-        </li>
-        <li>
-          <strong>Standard — $100</strong> (30 scripts, 3 hooks/script){" "}
-          <a href="https://buy.stripe.com/yyyyy">Buy</a>
-        </li>
-        <li>
-          <strong>Pro — $150</strong> (45 scripts, 4 hooks/script){" "}
-          <a href="https://buy.stripe.com/zzzzz">Buy</a>
-        </li>
-      </ul>
-
-      <p>
-        After payment, email your topic + niche to <strong>ssgpt6@aol.com</strong>.
-      </p>
-
-      <p>
-        <a href="/order">Go to Order page</a>
-      </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className="border border-slate-200 rounded-xl p-6 bg-white shadow-sm"
+            >
+              <h2 className="text-xl font-semibold text-slate-900 mb-2">
+                {plan.name}
+              </h2>
+              <p className="text-3xl font-bold text-slate-900 mb-4">
+                {plan.price}
+              </p>
+              <ul className="space-y-2 text-slate-700 text-sm">
+                {plan.features.map((f) => (
+                  <li key={f}>• {f}</li>
+                ))}
+              </ul>
+              <button className="mt-6 w-full px-4 py-2 bg-slate-900 text-white rounded-lg text-sm">
+                Choose Plan
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
     </main>
   );
 }
