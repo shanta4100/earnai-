@@ -1,18 +1,22 @@
-// 10) app/legal/privacy/page.tsx
-export default function Page() {
+// app/legal/privacy/page.tsx
+export default function PrivacyPage() {
   return (
-    <>
-      <h1>Privacy Policy</h1>
-      <p style={{ maxWidth: 720, lineHeight: 1.6 }}>
-        This Privacy Policy explains, in simple terms, how basic information may be
-        collected and used when you interact with the EarnAI website.
-      </p>
-      <p style={{ maxWidth: 720, lineHeight: 1.6, marginTop: 16 }}>
-        EarnAI itself does not intentionally collect sensitive personal data beyond what
-        is necessary to process your orders and communicate with you. Payments are handled
-        by Stripe or other payment processors, which have their own privacy and security
-        practices. You should review their policies separately.
-      </p>
-    </>
+    <main className="min-h-screen bg-white px-6 py-10">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-semibold text-slate-900 mb-4">
+          Privacy Policy
+        </h1>
+        <p className="text-slate-700 mb-4">
+          This demo version does not collect, store, or process any personal
+          data. Forms and inputs are local only and are not connected to any
+          backend or database.
+        </p>
+        <p className="text-slate-700">
+          In a production system, this page should describe what data is
+          collected, how it is used, and how users can manage their privacy
+          choices.
+        </p>
+      </div>
+    </main>
   );
 }
