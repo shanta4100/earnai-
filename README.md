@@ -1,2 +1,2 @@
 # EarnAI
-Next.js project deployed on Vercel.
+Next.js + Tailwind + Firebase project deployed on Vercel.
