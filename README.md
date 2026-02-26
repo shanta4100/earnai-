@@ -1,14 +1,5 @@
-# EarnAI
-Next.js + Tailwind + Firebase project deployed on Vercel.
-# GNAIAI Infra Bootstrap
+# gnaiai-infra (bootstrap)
 
-Repository: infra modules (AWS / GCP / Azure), CI/CD, OPA policies, and runbooks.
+Minimal infra bootstrap: multi-cloud Terraform skeletons (placeholders), CI workflow, OPA policy sample, and secrets template.
 
-This PR contains:
-- `infra/aws/`, `infra/gcp/`, `infra/azure/` Terraform skeletons
-- `.github/workflows/ci-cd.yml` unified CI/CD
-- `policies/aaac.rego` sample OPA rules
-- `ci/secrets.example.env` secrets template
-- `docs/runbooks/` minimal runbook
-
-Replace placeholders before applying. Use OIDC where possible.
+Replace placeholders before running any Terraform apply. Do not commit real secrets.
