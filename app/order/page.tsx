@@ -33,9 +33,6 @@ export default function OrderPage() {
       <p style={{ marginTop: 22 }}>
         <a href="/pricing">View Pricing</a> • <a href="/">Back Home</a>
       </p>
-    </main>
-  );
-}
 <p style={{ marginTop: "30px" }}>
   <a
     href="/order"
@@ -51,3 +48,6 @@ export default function OrderPage() {
     Go to Order Page
   </a>
 </p>
+    </main>
+  );
+}
