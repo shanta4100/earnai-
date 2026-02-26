@@ -1,0 +1,42 @@
+/* app/globals.css */
+
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth font rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default padding/margins */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar styling (clean + minimal) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* slate-300 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* slate-400 */
+}
+
+/* Hybrid theme helpers */
+.bg-dashboard-dark {
+  background-color: #0f172a; /* slate-950 */
+}
+
+.bg-dashboard-light {
+  background-color: #f1f5f9; /* slate-100 */
+}
