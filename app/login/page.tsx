@@ -1,34 +1,50 @@
 "use client";
 
-import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import { auth } from "@/lib/firebase";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 
-export default function Page() {
-  const router = useRouter();
+export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [msg, setMsg] = useState("");
 
-  async function login(e: any) {
+  async function onLogin(e: React.FormEvent) {
     e.preventDefault();
-    await signInWithEmailAndPassword(auth, email, password);
-    router.replace("/dashboard");
+    setMsg("");
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      window.location.href = "/dashboard";
+    } catch (err: any) {
+      setMsg(err?.message || "login failed");
+    }
   }
 
   return (
-    <main style={{ maxWidth: 400, margin: "60px auto" }}>
+    <main style={{ maxWidth: 520, margin: "40px auto", padding: "0 16px" }}>
       <h1>login</h1>
 
-      <form onSubmit={login} style={{ display: "grid", gap: 10 }}>
-        <input placeholder="email" onChange={(e)=>setEmail(e.target.value)} />
-        <input type="password" placeholder="password" onChange={(e)=>setPassword(e.target.value)} />
-        <button>login</button>
+      <form onSubmit={onLogin} style={{ display: "grid", gap: 10 }}>
+        <input
+          placeholder="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          autoCapitalize="none"
+        />
+        <input
+          placeholder="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">login</button>
       </form>
 
-      <p>
-        <Link href="/register">create account</Link>
+      {msg ? <p style={{ color: "crimson" }}>{msg}</p> : null}
+
+      <p style={{ marginTop: 12 }}>
+        <a href="/register">create account</a> • <a href="/reset">reset password</a> •{" "}
+        <a href="/">home</a>
       </p>
     </main>
   );
