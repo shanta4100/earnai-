@@ -203,3 +203,22 @@ export default function DashboardPage() {
     </div>
   );
 }
+"use client";
+
+import { createBillingPortal } from "../actions/createBillingPortal";
+
+export default function BillingButton() {
+  async function openPortal() {
+    const session = await createBillingPortal("cus_123"); // temporary
+    if (session?.url) window.location.href = session.url;
+  }
+
+  return (
+    <button
+      onClick={openPortal}
+      className="px-4 py-2 bg-slate-900 text-white rounded-lg text-sm"
+    >
+      Manage Billing
+    </button>
+  );
+}
