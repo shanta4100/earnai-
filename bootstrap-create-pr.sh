@@ -37,3 +37,41 @@ gh pr create --title "Infra bootstrap: aws/gcp/azure + CI + policies" \
   --base "$MAIN_BRANCH" --head "$GITHUB_OWNER:$PR_BRANCH"
 
 echo "PR created. Visit: https://github.com/$GITHUB_OWNER/$REPO_NAME/pull"
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_NAME="gnaiai-infra"
+PR_BRANCH="pr/bootstrap"
+MAIN_BRANCH="main"
+GITHUB_OWNER="shanta4100"
+COMMIT_MSG="chore: infra bootstrap (aws/gcp/azure, ci, policies, runbooks)"
+
+# Preconditions: gh auth login done, git installed, files present in working dir.
+
+# 1. Initialize git repo and commit current files
+git init
+git checkout -b "$PR_BRANCH"
+git add .
+git commit -m "$COMMIT_MSG"
+
+# 2. Create remote repo (private) under your account
+gh repo create "$GITHUB_OWNER/$REPO_NAME" --private --confirm
+
+# 3. Push PR branch
+git push -u origin "$PR_BRANCH"
+
+# 4. Ensure main branch exists and set default branch to main
+git checkout -b "$MAIN_BRANCH"
+git push -u origin "$MAIN_BRANCH"
+gh api repos/$GITHUB_OWNER/$REPO_NAME --method PATCH -f default_branch="$MAIN_BRANCH" || true
+
+# 5. Recreate and push PR branch (force to ensure branch state)
+git checkout "$PR_BRANCH"
+git push -u origin "$PR_BRANCH" --force
+
+# 6. Open PR
+gh pr create --title "Infra bootstrap: aws/gcp/azure + CI + policies" \
+  --body "This PR bootstraps Terraform skeletons for AWS/GCP/Azure, unified CI/CD workflow, OPA policies, and runbooks. Replace placeholders in ci/secrets.example.env and configure OIDC before production deploys." \
+  --base "$MAIN_BRANCH" --head "$GITHUB_OWNER:$PR_BRANCH"
+
+echo "PR created: https://github.com/$GITHUB_OWNER/$REPO_NAME/pull"
