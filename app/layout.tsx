@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "EarnAI (QuickEarn Hub)",
-  description: "YouTube Shorts Script Service — 48 hour delivery",
+  title: "earnai",
+  description: "quickearn hub storefront",
 };
 
 export default function RootLayout({
@@ -10,7 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "system-ui, Arial, sans-serif" }}>
+      <body style={{ margin: 0, fontFamily: "system-ui, Arial" }}>
         {children}
       </body>
     </html>
