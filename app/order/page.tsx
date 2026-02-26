@@ -36,3 +36,18 @@ export default function OrderPage() {
     </main>
   );
 }
+<p style={{ marginTop: "30px" }}>
+  <a
+    href="/order"
+    style={{
+      display: "inline-block",
+      padding: "12px 20px",
+      backgroundColor: "#000",
+      color: "#fff",
+      textDecoration: "none",
+      borderRadius: "8px",
+    }}
+  >
+    Go to Order Page
+  </a>
+</p>
