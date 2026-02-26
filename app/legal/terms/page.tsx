@@ -1,18 +1,21 @@
-// 9) app/legal/terms/page.tsx
-export default function Page() {
+// app/legal/terms/page.tsx
+export default function TermsPage() {
   return (
-    <>
-      <h1>Terms of Service</h1>
-      <p style={{ maxWidth: 720, lineHeight: 1.6 }}>
-        These Terms of Service govern your use of the EarnAI website and any products
-        or digital content offered through it. EarnAI is operated by GNAIAAC LLC.
-      </p>
-      <p style={{ maxWidth: 720, lineHeight: 1.6, marginTop: 16 }}>
-        By accessing or using this site, you agree that you are responsible for your own
-        decisions, your own compliance with local laws, and your own reporting obligations
-        (including tax and benefits reporting). EarnAI does not guarantee any specific
-        income results and does not provide legal, tax, or financial advice.
-      </p>
-    </>
+    <main className="min-h-screen bg-white px-6 py-10">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-semibold text-slate-900 mb-4">
+          Terms of Service
+        </h1>
+        <p className="text-slate-700 mb-4">
+          By using this demo interface, you agree that all content is provided
+          “as is” with no guarantees. This environment is for testing and
+          demonstration only.
+        </p>
+        <p className="text-slate-700">
+          In a production system, this page should define acceptable use,
+          limitations of liability, and user responsibilities.
+        </p>
+      </div>
+    </main>
   );
 }
