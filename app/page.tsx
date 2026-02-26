@@ -1,23 +1,23 @@
-export default function HomePage() {
-  return (
-    <main style={{ maxWidth: 900, margin: "40px auto", padding: "0 16px" }}>
-      <h1>EarnAI (QuickEarn Hub)</h1>
-      <p>✅ Home page is working.</p>
+"use client";
 
-      <hr style={{ margin: "24px 0" }} />
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
-      <h2>Links</h2>
-      <ul>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/order">Order</a></li>
-        <li><a href="/affiliate">Affiliate</a></li>
-      </ul>
+export default function Page() {
+  const router = useRouter();
 
-      <p style={{ marginTop: 24 }}>
-        <strong>Operator:</strong> GNAIAAAC LLC<br />
-        <strong>Contact:</strong> ssgpt6@aol.com<br />
-        <strong>Delivery:</strong> 48 hours
-      </p>
-    </main>
-  );
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router.replace("/dashboard");
+      } else {
+        router.replace("/login");
+      }
+    });
+    return () => unsub();
+  }, [router]);
+
+  return <div style={{ padding: 40 }}>loading...</div>;
 }
