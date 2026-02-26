@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GNAIAI — Portfolio</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#071827;color:#e6eef8}
+    .wrap{max-width:900px;margin:36px auto;padding:24px;background:#0b1220;border-radius:10px}
+    h1{margin:0 0 8px;font-size:22px}
+    p{color:#94a3b8}
+    .card{background:#071827;padding:14px;border-radius:8px;margin-top:12px}
+    label{display:block;margin:8px 0 4px;font-size:14px}
+    input,textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #233044;background:#0b1220;color:#e6eef8}
+    button{margin-top:10px;padding:10px 14px;border-radius:8px;border:0;background:#60a5fa;color:#04263b;font-weight:700}
+    footer{margin-top:18px;color:#94a3b8;font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>GNAIAI — Portfolio</h1>
+    <p>Simple site for your portfolio and project manifest. This page is Netlify‑ready and will not return 404s for deep links.</p>
+
+    <div class="card">
+      <h3>Architecture snapshot</h3>
+      <p class="small">Microservices, audit ledger, data lake, secrets, observability — high level only.</p>
+    </div>
+
+    <div class="card">
+      <h3>Contact</h3>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <label for="name">Name</label>
+        <input id="name" name="name" required>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <p style="margin-top:8px;color:#94a3b8">Submissions go to Netlify Forms; you can forward them to email or Zapier in Netlify settings.</p>
+    </div>
+
+    <footer>Prepared for Arifur — Upper Darby, PA</footer>
+  </div>
+</body>
+</html>
