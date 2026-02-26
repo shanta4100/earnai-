@@ -1,50 +1,44 @@
-"use client";
-
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
-import { auth } from "@/lib/firebase";
+// app/register/page.tsx
+import Link from "next/link";
 
 export default function RegisterPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [msg, setMsg] = useState("");
-
-  async function onRegister(e: React.FormEvent) {
-    e.preventDefault();
-    setMsg("");
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      window.location.href = "/dashboard";
-    } catch (err: any) {
-      setMsg(err?.message || "register failed");
-    }
-  }
-
   return (
-    <main style={{ maxWidth: 520, margin: "40px auto", padding: "0 16px" }}>
-      <h1>register</h1>
+    <main className="min-h-screen bg-slate-900 flex items-center justify-center px-6">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+        <h1 className="text-2xl font-semibold text-slate-900 mb-2">Create Account</h1>
+        <p className="text-sm text-slate-600 mb-6">
+          Join EarnAI and access your business dashboard.
+        </p>
 
-      <form onSubmit={onRegister} style={{ display: "grid", gap: 10 }}>
-        <input
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          autoCapitalize="none"
-        />
-        <input
-          placeholder="password (min 6)"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">create account</button>
-      </form>
+        <form className="space-y-4">
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"
+          />
 
-      {msg ? <p style={{ color: "crimson" }}>{msg}</p> : null}
+          <button className="w-full bg-slate-900 text-white py-2 rounded-lg text-sm font-medium">
+            Create Account
+          </button>
+        </form>
 
-      <p style={{ marginTop: 12 }}>
-        <a href="/login">back to login</a> • <a href="/">home</a>
-      </p>
+        <div className="mt-6 text-sm text-center text-slate-600">
+          Already have an account?{" "}
+          <Link href="/login" className="text-slate-900 font-medium">
+            Login
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }
