@@ -1,16 +1,16 @@
+// app/layout.tsx
+import type { ReactNode } from "react";
+import "./globals.css";
+
 export const metadata = {
-  title: "earnai — quickearn hub",
-  description: "youtube shorts script service by gnaiaaac llc",
+  title: "EarnAI",
+  description: "Business dashboard and earning hub"
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "system-ui, Arial" }}>
+      <body className="min-h-screen bg-gray-100 text-gray-900 antialiased">
         {children}
       </body>
     </html>
