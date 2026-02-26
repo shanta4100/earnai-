@@ -20,9 +20,6 @@ jobs:
       - name: Install netlify-cli
         run: npm install -g netlify-cli
 
-      - name: Build (no build for static site)
-        run: echo "No build step for static site"
-
       - name: Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
