@@ -1,16 +1,23 @@
-export default function page() {
+export default function HomePage() {
   return (
     <main style={{ maxWidth: 900, margin: "40px auto", padding: "0 16px" }}>
-      <h1>earnai</h1>
-      <p>youtube shorts script packages delivered in 48 hours.</p>
+      <h1>EarnAI (QuickEarn Hub)</h1>
+      <p>✅ Home page is working.</p>
 
-      <p>
-        <a href="/pricing">go to pricing</a>
-      </p>
+      <hr style={{ margin: "24px 0" }} />
 
-      <p>
-        <a href="/affiliate">affiliate program</a>
+      <h2>Links</h2>
+      <ul>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/order">Order</a></li>
+        <li><a href="/affiliate">Affiliate</a></li>
+      </ul>
+
+      <p style={{ marginTop: 24 }}>
+        <strong>Operator:</strong> GNAIAAAC LLC<br />
+        <strong>Contact:</strong> ssgpt6@aol.com<br />
+        <strong>Delivery:</strong> 48 hours
       </p>
     </main>
-  )
+  );
 }
