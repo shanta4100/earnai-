@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "earnai",
-  description: "quickearn hub storefront",
+  title: "earnai — quickearn hub",
+  description: "youtube shorts script service by gnaiaaac llc",
 };
 
 export default function RootLayout({
