@@ -1,5 +1,10 @@
-# Use the provider-specific Terraform skeletons provided earlier in the conversation.
-# Copy each file's content exactly into the matching path:
-# infra/aws/main.tf
-# infra/gcp/main.tf
-# infra/azure/main.tf
+provider "aws" { region = var.aws_region }
+
+variable "aws_region" { type = string }
+variable "project" { type = string }
+
+resource "aws_s3_bucket" "audit_ledger" {
+  bucket = "${var.project}-audit-ledger"
+  acl    = "private"
+  versioning { enabled = true }
+}
