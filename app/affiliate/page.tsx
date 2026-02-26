@@ -1,38 +1,34 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
+// app/affiliate/page.tsx
 export default function AffiliatePage() {
-  const base = "https://earnai.vercel.app/?ref=";
-  const [link, setLink] = useState(base + "yourname");
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const ref = params.get("ref");
-    if (ref) setLink(base + ref);
-  }, []);
-
   return (
-    <main style={{ maxWidth: 900, margin: "40px auto", padding: "0 16px" }}>
-      <h1>earnai affiliate program</h1>
+    <main className="min-h-screen bg-white px-6 py-10">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-semibold text-slate-900 mb-4">
+          Affiliate Program
+        </h1>
+        <p className="text-slate-700 mb-4">
+          Earn commissions by sharing EarnAI with your audience. Our affiliate
+          program is simple, transparent, and designed to help you grow your
+          income.
+        </p>
 
-      <p>share your referral link and earn commission.</p>
+        <div className="rounded-xl border border-slate-200 p-4 bg-slate-50">
+          <p className="text-sm text-slate-600 mb-2">Your referral link:</p>
+          <div className="flex items-center justify-between bg-white border border-slate-300 rounded-lg px-3 py-2">
+            <span className="text-xs text-slate-700">
+              https://earnai.local/ref/arifur
+            </span>
+            <button className="text-xs px-2 py-1 bg-slate-900 text-white rounded">
+              Copy
+            </button>
+          </div>
+        </div>
 
-      <h3>your link:</h3>
-      <pre style={{ background: "#f6f6f6", padding: 12, borderRadius: 10, overflow: "auto" }}>
-        {link}
-      </pre>
-
-      <p><strong>commission:</strong> 20% per sale (manual payout)</p>
-
-      <p>example:</p>
-      <ul>
-        <li><code>https://earnai.vercel.app/?ref=yourname</code></li>
-      </ul>
-
-      <p>
-        <a href="/">back home</a>
-      </p>
+        <p className="text-slate-700 mt-6">
+          Track your referrals, commissions, and payouts directly from your
+          dashboard.
+        </p>
+      </div>
     </main>
   );
 }
